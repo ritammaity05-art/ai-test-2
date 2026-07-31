@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-cyan: #00f3ff;
+    --color-purple: #b026ff;
+    --color-magenta: #ff007f;
+    --color-bg-dark: #030712;
+    --glass-bg: rgba(6, 12, 24, 0.65);
+    --glass-border: rgba(0, 243, 255, 0.25);
+    --glass-glow: rgba(0, 243, 255, 0.15);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color-bg-dark);
+    color: #f3f4f6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Glassmorphism Cyber Panel */
+.cyber-glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(0, 243, 255, 0.08);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cyber-glass-panel:hover {
+  border-color: rgba(0, 243, 255, 0.45);
+  box-shadow: 0 12px 40px 0 rgba(0, 243, 255, 0.15), inset 0 0 20px rgba(0, 243, 255, 0.12);
+}
+
+/* Neon Glow Accents */
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+.glow-purple {
+  text-shadow: 0 0 10px rgba(176, 38, 255, 0.8), 0 0 20px rgba(176, 38, 255, 0.4);
+}
+
+.border-glow-cyan {
+  border-color: #00f3ff;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.5), inset 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.border-glow-purple {
+  border-color: #b026ff;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.5), inset 0 0 10px rgba(176, 38, 255, 0.3);
+}
+
+/* Sci-Fi Scanline Animation */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-scanline {
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(180deg, rgba(0, 243, 255, 0) 0%, rgba(0, 243, 255, 0.8) 50%, rgba(0, 243, 255, 0) 100%);
+  box-shadow: 0 0 15px #00f3ff;
+  animation: scanline 2.5s ease-in-out infinite;
+}
+
+/* Floating Pulse Animation */
+@keyframes cyber-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 3s ease-in-out infinite;
+}
+
+/* RGB Glitch Animation */
+@keyframes rgb-glitch {
+  0% {
+    text-shadow: 2px 0 0 #00f3ff, -2px 0 0 #ff007f;
+  }
+  25% {
+    text-shadow: -2px 0 0 #00f3ff, 2px 0 0 #ff007f;
+  }
+  50% {
+    text-shadow: 1px -1px 0 #00f3ff, -1px 1px 0 #ff007f;
+  }
+  75% {
+    text-shadow: -1px 1px 0 #00f3ff, 1px -1px 0 #ff007f;
+  }
+  100% {
+    text-shadow: 2px 0 0 #00f3ff, -2px 0 0 #ff007f;
+  }
+}
+
+.glitch-text {
+  animation: rgb-glitch 0.4s ease infinite;
+}
+
+/* Code Line Highlight Animation */
+@keyframes line-flash {
+  0% {
+    background-color: rgba(0, 243, 255, 0.35);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.line-modified {
+  animation: line-flash 1.2s ease-out forwards;
+}
+
+/* Custom Scrollbar for HUD Code Editor */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 243, 255, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 243, 255, 0.8);
+}
